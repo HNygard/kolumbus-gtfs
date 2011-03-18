@@ -1,6 +1,8 @@
 <html>
 <head>
 	<title>Neste avganger fra holdeplass <?php echo $stop->stop_name; ?> - Hnygard.no</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/kolumbus/next_departure.js"></script>
 </head>
 
 <body style="background-color: black; color: white;">
@@ -21,6 +23,7 @@ td { border: 1px solid gray; }
 tr.departing td { color: red; }
 tr.departing_soon td { color: orange; }
 </style>';
+	echo '<span style="display: none;" id="unixtime_now">'.time().'</span>';
 	echo '<table class="departures">';
 	echo '	<tr>';
 	echo '		<td>Dato</td>';
