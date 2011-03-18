@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Holdeplasser i Rogaland - Hnygard.no</title>
+	<title>Buss-holdeplasser i Rogaland - Hnygard.no</title>
 </head>
 
 <!--
@@ -31,12 +31,11 @@ if(isset($stops))
 {
 	foreach ($stops as $stop)
 	{
-		echo html::anchor('holdeplass/'.$stop->stop_id.'/'.
-			url::title($stop->stop_name), $stop->stop_name).'<br>';;
+		echo html::anchor($stop->getLink(), $stop->stop_name).'<br>';;
 	}
 }
 ?>
 
-Rutedate fra Kolumbus.
+Rutedata fra Kolumbus.
 </body>
 </html>

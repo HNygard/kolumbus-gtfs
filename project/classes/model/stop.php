@@ -35,4 +35,10 @@ class Model_Stop extends Sprig {
 		else
 			return parent::__get($var);
 	}
+	
+	public function getLink()
+	{
+		return 'holdeplass/'.$this->stop_id.'/'.
+			url::title($this->stop_name);
+	}
 }
