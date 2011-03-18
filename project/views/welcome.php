@@ -23,7 +23,7 @@
 <!-- <body onload="init()"> 
 	<!-- <div id="map" class="smallmap"></div> 
 
-	Kartdata fra OpenStreetMap. Rutedate fra Kolumbus.-->
+	Kartdata fra OpenStreetMap. Rutedata fra Kolumbus.-->
 <body>
 <?php
 
@@ -36,6 +36,6 @@ if(isset($stops))
 }
 ?>
 
-Rutedata fra Kolumbus.
+<br />Laget av Hallvard Nygård (<a href="https://twitter.com/hallny/">@hallny</a>). CC-BY-SA, <a href="https://github.com/HNygard/kolumbus-gtfs">kildekode på Github</a>. Rutedata fra Kolumbus (<a href="http://next.kolumbus.no/rutedata/">se egen lisens</a>).
 </body>
 </html>
