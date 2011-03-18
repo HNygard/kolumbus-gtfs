@@ -7,7 +7,8 @@
 <?php
 
 echo '<h1>Holdeplass '.$stop->stop_name.'</h1>';
-echo html::anchor($stop->stop_url, 'Vis mobilversjon av holdeplassen hos Kolumbus').'<br />';
+//echo html::anchor($stop->stop_url, 'Vis mobilversjon av holdeplassen hos Kolumbus').'<br />';
+echo html::anchor($stop->getLink().'/neste_avganger', 'Vis neste avganger').' (tilpasset fullskjermsvisning)<br />';
 
 echo '<br />';
 ?>

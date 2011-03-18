@@ -13,7 +13,12 @@ class Controller_Holdeplass extends Controller_Template {
 			return;
 		}
 		
+		
+		if($view == 'neste_avganger')
+		{
+			$this->template = new View('holdeplass/neste_avganger');
+		}
+		
 		$this->template->stop = $stop;
 	}
-
-} // End Welcome
+}
