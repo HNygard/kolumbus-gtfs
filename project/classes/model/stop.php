@@ -31,7 +31,9 @@ class Model_Stop extends Sprig {
 	public function __get($var)
 	{
 		if($var == 'stop_name')
-			return mb_convert_encoding(parent::__get($var), 'ISO-8859-1', 'UTF8');
+		{
+			return mb_convert_encoding(parent::__get($var), 'Windows-1252', 'UTF8');
+		}
 		else
 			return parent::__get($var);
 	}
