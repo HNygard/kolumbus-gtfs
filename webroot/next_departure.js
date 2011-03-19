@@ -48,7 +48,7 @@ function updateDepartures()
 	// Run through all tr with the tag
 	$('tr.departure').each(function(index, row)
 	{
-		now = new Date;
+		var now = new Date;
 		unixtime_now = parseInt(now.getTime() / 1000);
 		unixtime = $('td.departure_unixtime', $(this)).text();
 		
