@@ -72,33 +72,104 @@ class Model_Stop extends Sprig {
 	public function getNextDepartures ()
 	{
 		// Getting departures for today and tomorrow
-		$bigassquery = DB::query(Database::SELECT, 
+		/*$bigassquery = DB::query(Database::SELECT, 
 			"SELECT *
-				FROM `stop_times` , `trips` , `calendar_dates` , `routes`
+				FROM (`stop_times` , `trips` , `routes`) left join `calendar_dates`
+				ON trips.service_id = calendar_dates.service_id
 				WHERE
-					stop_times.`stop_id` = '11031124' AND 
-					stop_times.trip_id = trips.trip_id AND 
-					trips.service_id = calendar_dates.service_id AND
-					trips.route_id = routes.route_id AND 
+					stop_times.`stop_id` = '11031124' AND
+					stop_times.trip_id = trips.trip_id AND
+					trips.route_id = routes.route_id AND
+					
+					# Kolumbus data has not got calendar table
+					# Assuming routes are always running all week
+					# trips.service_id = calendar.service_id AND (...)
+					/*(
+						1 AND # TODO if calendar.txt is added
+						!(trips.service_id =
+							calendar_dates.service_id AND
+						calendar_dates.exception_type = 2 AND
+						(
+							calendar_dates.date =
+								'".date('Ymd')."' OR
+							calendar_dates.date =
+								'".date('Ymd',
+									mktime(0,0,0,
+										date('m'),
+										date('d')+1,
+										date('Y')
+									)
+								)."'
+						) ) # TODO: add exception_type = 2 in query
+					) OR*/
+					
+					# Exceptions, added routes for this day
+					/*(
+						trips.service_id =
+							calendar_dates.service_id AND
+						calendar_dates.exception_type = 1 AND
+						(
+							calendar_dates.date =
+								'".date('Ymd')."' OR
+							calendar_dates.date =
+								'".date('Ymd',
+									mktime(0,0,0,
+										date('m'),
+										date('d')+1,
+										date('Y')
+									)
+								)."'
+						)
+					)
+					
 					(
-						calendar_dates.date = 
-							'".date('Ymd')."' OR 
-						calendar_dates.date = 
-							'".date('Ymd', 
-								mktime(0,0,0, 
-									date('m'), 
-									date('d')+1, 
+						calendar_dates.date =
+							'".date('Ymd')."' OR
+						calendar_dates.date =
+							'".date('Ymd',
+								mktime(0,0,0,
+									date('m'),
+									date('d')+1,
 									date('Y')
 								)
 							)."'
-					)")
+					)
+					")
+		;*/
+		$bigassquery = DB::query(Database::SELECT, 
+			"SELECT *
+				FROM (`stop_times` , `trips` , `routes`) left join `calendar_dates`
+				ON trips.service_id = calendar_dates.service_id
+				WHERE
+					stop_times.`stop_id` = '".$this->stop_id."' AND
+					stop_times.trip_id = trips.trip_id AND
+					trips.route_id = routes.route_id AND
+					
+					
+					(
+						calendar_dates.date =
+							'".date('Ymd')."' OR
+						calendar_dates.date =
+							'".date('Ymd',
+								mktime(0,0,0,
+									date('m'),
+									date('d')+1,
+									date('Y')
+								)
+							)."'
+					)
+					")
 				->execute();
 		
 		$departures = array();
 		foreach($bigassquery as $a )
 		{
 			$checkout = false;
-			if($a['date'] == date('Ymd')) // Today
+			if($a['exception_type'] == '2') // Not running on this day
+			{
+				$checkout = false;
+			}
+			elseif($a['date'] == date('Ymd')) // Today
 			{
 				if(
 					Model_Stop::getTimeInSeconds(
