@@ -1,6 +1,7 @@
 <html>
 <head>
 	<title>Holdeplass <?php echo $stop->stop_name; ?> - Hnygard.no</title>
+	<?php echo new View ('googleanalytics'); ?>
 </head>
 
 <body>

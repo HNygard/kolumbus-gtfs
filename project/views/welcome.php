@@ -1,6 +1,7 @@
 <html>
 <head>
 	<title>Buss-holdeplasser i Rogaland - Hnygard.no</title>
+	<?php echo new View ('googleanalytics'); ?>
 </head>
 
 <!--

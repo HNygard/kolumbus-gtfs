@@ -3,6 +3,7 @@
 	<title>Neste avganger fra holdeplass <?php echo $stop->stop_name; ?> - Hnygard.no</title>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 	<script type="text/javascript" src="/kolumbus/next_departure.js"></script>
+	<?php echo new View ('googleanalytics'); ?>
 </head>
 
 <body style="background-color: black; color: white;">
