@@ -18,7 +18,7 @@ echo '<br />';
 <div id="map" style="width:500px; height:500px;"></div>
 <script>
 $(document).ready(function() {
-	map = new OpenLayers.Map("map");
+	var map = new OpenLayers.Map("map");
 	map.addLayer(new OpenLayers.Layer.OSM());
 
 	var lonLat = new OpenLayers.LonLat( <?php echo $stop->stop_lon.' ,'.$stop->stop_lat; ?> )

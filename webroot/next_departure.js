@@ -49,7 +49,7 @@ function updateDepartures()
 	$('tr.departure').each(function(index, row)
 	{
 		var now = new Date;
-		unixtime_now = parseInt(now.getTime() / 1000);
+		var unixtime_now = parseInt(now.getTime() / 1000);
 		unixtime = $('td.departure_unixtime', $(this)).text();
 		
 		seconds_left = parseInt(unixtime - unixtime_now);
