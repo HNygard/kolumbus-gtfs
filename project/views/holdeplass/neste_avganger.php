@@ -87,6 +87,10 @@ td.trip_headsign {
 	padding-left: 0.5em;
 	font-size: 1.3em;
 }
+a:link { color: white; }
+a:visited { color: white; }
+a:active { color: white; }
+a:hover { color: white; }
 </style>';
 	echo '<span style="display: none;" id="unixtime_now">'.time().'</span>';
 	echo '<table class="departures">';
@@ -115,6 +119,6 @@ td.trip_headsign {
 }
 ?>
 
-<div class="footer next_departures">http://kolumbus.hnygard.no/ - Visning av Hallvard Nyg&aring;rd (@hallny). Rutedata fra Kolumbus.</div>
+<div class="footer next_departures"><a href="http://kolumbus.hnygard.no/">http://kolumbus.hnygard.no/</a> - Visning av Hallvard Nyg&aring;rd (@<a href="https://twitter.com/hallny">hallny</a>). Rutedata fra Kolumbus.</div>
 </body>
 </html>
