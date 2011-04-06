@@ -1,4 +1,10 @@
+<?php
 
+echo '<h1>Kolumbus.hnygard.no</h1>';
+
+echo html::anchor('holdeplass/liste/', 'Liste med samtlige holdeplasser');
+
+?>
 <!--
 <script src="http://openlayers.org/api/OpenLayers.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -21,13 +27,3 @@
 
 	Kartdata fra OpenStreetMap. Rutedata fra Kolumbus.-->
 
-<?php
-
-if(isset($stops))
-{
-	foreach ($stops as $stop)
-	{
-		echo html::anchor($stop->getLink(), $stop->stop_name).'<br>';;
-	}
-}
-?>

@@ -114,6 +114,11 @@ Kohana::modules(array(
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
  * defaults for the URI.
  */
+Route::set('holdeplassliste', '(holdeplass/liste)')
+	->defaults(array(
+		'controller' => 'holdeplass',
+		'action'     => 'liste',
+	));
 Route::set('holdeplass', '(holdeplass(/<stop_id>(/<stop_name>(/<view>))))')
 	->defaults(array(
 		'controller' => 'holdeplass',
