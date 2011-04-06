@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Holdeplass extends Controller_Template {
+class Controller_Holdeplass extends Controller_Templatekolumbus {
 
 	public $template = 'holdeplass/vis';
 	public function action_index($stop_id, $stop_name, $view = 'vis')
@@ -20,5 +20,6 @@ class Controller_Holdeplass extends Controller_Template {
 		}
 		
 		$this->template->stop = $stop;
+		$this->template2->title = 'Holdeplass '.$stop->stop_name;
 	}
 }

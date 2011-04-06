@@ -1,8 +1,3 @@
-<html>
-<head>
-	<title>Buss-holdeplasser i Rogaland - Hnygard.no</title>
-	<?php echo new View ('googleanalytics'); ?>
-</head>
 
 <!--
 <script src="http://openlayers.org/api/OpenLayers.js" type="text/javascript"></script>
@@ -25,7 +20,7 @@
 	<!-- <div id="map" class="smallmap"></div> 
 
 	Kartdata fra OpenStreetMap. Rutedata fra Kolumbus.-->
-<body>
+
 <?php
 
 if(isset($stops))
@@ -36,7 +31,3 @@ if(isset($stops))
 	}
 }
 ?>
-
-<br />Laget av Hallvard Nygård (<a href="https://twitter.com/hallny/">@hallny</a>). CC-BY-SA, <a href="https://github.com/HNygard/kolumbus-gtfs">kildekode på Github</a>. Rutedata fra Kolumbus (<a href="http://next.kolumbus.no/rutedata/">se egen lisens</a>).
-</body>
-</html>

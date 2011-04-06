@@ -1,12 +1,3 @@
-<html>
-<head>
-	<title>Holdeplass <?php echo $stop->stop_name; ?> - Hnygard.no</title>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-	<script type="text/javascript" src="http://www.openlayers.org/api/OpenLayers.js"></script>
-	<?php echo new View ('googleanalytics'); ?>
-</head>
-
-<body>
 <?php
 
 echo '<h1>Holdeplass '.$stop->stop_name.'</h1>';
@@ -37,7 +28,3 @@ $(document).ready(function() {
 	map.setCenter (lonLat, zoom);
 });
 </script>
-
-Rutedata fra Kolumbus.
-</body>
-</html>
