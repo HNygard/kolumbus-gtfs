@@ -33,7 +33,7 @@ class Controller_Holdeplass extends Controller_Templatekolumbus {
 		$this->template = View::factory('holdeplass/liste');
 		
 		// Just loading all stops
-		$this->template->stops = Sprig::factory('stop')->load(NULL, FALSE);
+		$this->template->stops = DB::select('*')->from("stops")->execute();
 		$this->template2->title = 'Buss-holdeplasser i Rogaland';
 	}
 }

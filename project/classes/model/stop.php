@@ -50,6 +50,18 @@ class Model_Stop extends Sprig {
 	}
 	
 	/**
+	 * Returns link to the stops page
+	 *
+	 * @param   Array   A stop (only need stop_id and stop_name)
+	 * @return  String
+	 */
+	public static function getLinkFromArray($stop)
+	{
+		return 'holdeplass/'.$stop['stop_id'].'/'.
+			url::title($stop['stop_name']);
+	}
+	
+	/**
 	 * Returns number of seconds into a day + 1.1.1970
 	 *
 	 * @return  Int
