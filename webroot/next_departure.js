@@ -8,7 +8,8 @@
 
 
 $(document).ready(function() {
-	updateDepartures()
+	updateClock();
+	updateDepartures();
 });
 
 function secondsToText (seconds)
@@ -69,5 +70,30 @@ function updateDepartures()
 		$('td.departure_timeleft', $(this)).text(secondsToText (seconds_left));
 	});
 	
-	setTimeout("updateDepartures();", 5000); // Update every 5 second
+	t = setTimeout("updateDepartures();", 5000); // Update every 5 second
 }
+
+function updateClock()
+{
+
+	var now = new Date;
+	var minutes = clockAddZero(now.getMinutes());
+	var seconds = clockAddZero(now.getSeconds());
+	$('h1.clock').text(
+		now.getHours() + ":" +
+		minutes + ":" +
+		seconds
+	);
+
+	t2 = setTimeout("updateClock();", .500); // Update every half second
+}
+
+function clockAddZero (a)
+{
+	if(a < 10) {
+		return "0" + a;
+	} else {
+		return a;
+	}
+}
+

@@ -14,6 +14,7 @@ margin: 0;
 
 echo '<h1 class="next_departures">'.
 	'Bussavganger for holdeplass '.$stop->stop_name.'</h1>';
+echo '<h1 class="clock"></h1>';
 
 $deps = $stop->getNextDepartures();
 
